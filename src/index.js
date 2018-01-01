@@ -5,4 +5,4 @@ const question = () => {
   return `Hello, ${actual}!`;
 };
 
-export { question };
+export default question;
