@@ -32,12 +32,6 @@ const game = () => {
   return `Congratulation, ${userName}`;
 };
 
-const randomOperant = () => {
-  const operant = ['+', '-', '*'];
-  const randomOperant = operant[Math.floor(Math.random() * (3 - 0)) - 0];
-  return randomOperant;
-};
-
 const gameCalc = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -45,7 +39,9 @@ const gameCalc = () => {
   while (n < 3) {
     const randomNumber = Math.floor(Math.random() * (100 - 0)) - 0;
     const randomNumber2 = Math.floor(Math.random() * (100 - 0)) - 0;
-    const randomOperation1 = randomOperant();
+    const operant = ['+', '-', '*'];
+    const randomOperant = operant[Math.floor(Math.random() * (3 - 0)) - 0];
+    const randomOperation1 = randomOperant;
     console.log(`Question: ${randomNumber}${randomOperation1}${randomNumber2}`);
     const answer = readlineSync.question('Your answer: ');
     if (randomOperation1 === '+') {
