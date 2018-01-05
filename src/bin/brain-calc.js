@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import { gameCalc } from '..';
+import gameEven from '../games/brain-calc';
 
-console.log('Welcome to the Brain Games!');
-console.log('What is the result of the expression?\n');
-console.log(gameCalc());
+gameEven();

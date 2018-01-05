@@ -1,80 +1,33 @@
 import readlineSync from 'readline-sync';
 
-const question = () => {
+const questionName = () => {
   const userName = readlineSync.question('May I have your name? ');
-  return `Hello, ${userName}! \n`;
+  return userName;
 };
 
-const game = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  let n = 0;
-  while (n < 3) {
-    const randomNumber = Math.floor(Math.random() * (100 - 0)) - 0;
-    console.log(`Question: ${randomNumber}`);
+const numberRandom = () => {
+  const random = Math.floor(Math.random() * (10 - 0)) - 0;
+  return random;
+};
+
+const games = (description, game) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(description);
+  const name = questionName();
+  console.log(`Hello, ${name}!\n`);
+  let counter = 0;
+  while (counter < 3) {
+    const startGame = game();
+    console.log(`Question: ${startGame[0]}`);
     const answer = readlineSync.question('Your answer: ');
-    if (answer === 'yes' || answer === 'no') {
-      if (randomNumber % 2 === 0 && answer === 'yes') {
-        console.log('Correct!');
-        n += 1;
-      } if (randomNumber % 2 !== 0 && answer === 'no') {
-        console.log('Correct!');
-        n += 1;
-      } if (randomNumber % 2 === 0 && answer === 'no') {
-        return `"no" is wrong answer ;(. Correct answer was "yes". \n Lets try again, ${userName}!`;
-      } if (randomNumber % 2 !== 0 && answer === 'yes') {
-        return `"yes" is wrong answer ;(. Correct answer was "no". \n Lets try again, ${userName}!`;
-      }
+    if (answer === `${startGame[1]}`) {
+      console.log('Correct!');
+      counter += 1;
     } else {
-      return `Try again, ${userName}`;
+      return console.log(`It's wrong answer. Let's try again, ${name}!`);
     }
   }
-  return `Congratulation, ${userName}`;
+  return console.log(`Congratulations, ${name}!`);
 };
 
-const gameCalc = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  let n = 0;
-  while (n < 3) {
-    const randomNumber = Math.floor(Math.random() * (100 - 0)) - 0;
-    const randomNumber2 = Math.floor(Math.random() * (100 - 0)) - 0;
-    const operant = ['+', '-', '*'];
-    const randomOperant = operant[Math.floor(Math.random() * (3 - 0)) - 0];
-    const randomOperation1 = randomOperant;
-    console.log(`Question: ${randomNumber}${randomOperation1}${randomNumber2}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (randomOperation1 === '+') {
-      if (Number(answer) === randomNumber + randomNumber2) {
-        console.log('Correct!');
-        n += 1;
-      } else {
-        return 'Try again';
-      }
-    } if (randomOperation1 === '-') {
-      if (Number(answer) === randomNumber - randomNumber2) {
-        console.log('Correct!');
-        n += 1;
-      } else {
-        return 'Try again';
-      }
-    } if (randomOperation1 === '*') {
-      if (Number(answer) === randomNumber * randomNumber2) {
-        console.log('Correct!');
-        n += 1;
-      } else {
-        return 'Try again';
-      }
-    } if (randomOperation1 === '/') {
-      if (Number(answer) === randomNumber / randomNumber2) {
-        console.log('Correct!');
-        n += 1;
-      } else {
-        return 'Try again';
-      }
-    }
-  }
-  return `Congratulation, ${userName}`;
-};
-
-export { question, game, gameCalc };
+export { questionName, games, numberRandom };
