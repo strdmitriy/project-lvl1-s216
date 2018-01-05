@@ -7,7 +7,7 @@ const even = (num) => {
 };
 
 const gameEven = () => {
-  const description = 'Answer "yes" if number even otherwise answer "no".\n';
+  const description = 'Answer "yes" if number even otherwise answer "no".';
   const getGame = () => {
     const num = numberRandom();
     const answer = (number) => {
@@ -16,8 +16,8 @@ const gameEven = () => {
       } return 'no';
     };
     const question = `${num}`;
-    const arr = [question, answer(num)];
-    return arr;
+    const gameDateArr = [question, answer(num)];
+    return gameDateArr;
   };
   games(description, getGame);
 };

@@ -16,14 +16,14 @@ const mathematicalOperation = (number, operant) => {
 };
 
 const gameCalc = () => {
-  const description = 'What is the result of the expression?\n';
+  const description = 'What is the result of the expression?';
   const getGame = () => {
     const randomNumber = [numberRandom(), numberRandom()];
     const randomOperant = operantRandom();
     const question = `${randomNumber[0]} ${randomOperant} ${randomNumber[1]}`;
     const answer = mathematicalOperation(randomNumber, randomOperant);
-    const arr = [question, answer];
-    return arr;
+    const gameDateArr = [question, answer];
+    return gameDateArr;
   };
   games(description, getGame);
 };

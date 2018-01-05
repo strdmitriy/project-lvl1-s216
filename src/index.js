@@ -12,7 +12,7 @@ const numberRandom = () => {
 
 const games = (description, game) => {
   console.log('Welcome to the Brain Games!');
-  console.log(description);
+  console.log(description, '\n');
   const name = questionName();
   console.log(`Hello, ${name}!\n`);
   let counter = 0;
