@@ -15,7 +15,7 @@ const numberBalance = (num) => {
 };
 
 const gameBalance = () => {
-  const description = 'What is the result of the expression?';
+  const description = 'Balance the given number.';
   const getGame = () => {
     const randomNumber = [numberRandom(), numberRandom()];
     const question = `${randomNumber[0]}${randomNumber[1]}`;

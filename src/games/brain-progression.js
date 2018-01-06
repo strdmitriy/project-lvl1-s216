@@ -15,7 +15,7 @@ const arithmeticProgression = (start, step, hidden, progressionLength) => {
 };
 
 const gameProgression = () => {
-  const description = 'Find the greatest common divisor of given numbers.';
+  const description = 'What number is missing in this progression?';
   const getGame = () => {
     const startNumber = numberRandom();
     const step = numberRandom();
