@@ -15,19 +15,21 @@ const games = (description, game) => {
   console.log(description, '\n');
   const name = questionName();
   console.log(`Hello, ${name}!\n`);
-  let counter = 0;
-  while (counter < 3) {
+  const acc = (counter) => {
+    if (counter === 0) {
+      return console.log(`Congratulations, ${name}!`);
+    }
     const startGame = game();
     console.log(`Question: ${startGame[0]}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer === `${startGame[1]}`) {
       console.log('Correct!');
-      counter += 1;
     } else {
       return console.log(`It's wrong answer. Let's try again, ${name}!`);
     }
-  }
-  return console.log(`Congratulations, ${name}!`);
+    return acc(counter - 1);
+  };
+  return acc(3);
 };
 
 export { questionName, games, numberRandom };
