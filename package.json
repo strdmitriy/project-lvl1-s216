@@ -1,6 +1,6 @@
 {
   "name": "brain-games_216",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "Brain-games",
   "main": "index.js",
   "bin": {

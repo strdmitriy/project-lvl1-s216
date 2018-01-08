@@ -1,28 +1,34 @@
 import { games, numberRandom } from '..';
 
-const arithmeticProgression = (start, step, hidden, progressionLength) => {
-  let startNumber = start;
-  const progression = [];
-  for (let i = 0; i < progressionLength; i += 1) {
-    if (i === hidden) {
-      progression.push('..');
-      startNumber += step;
-    }
-    progression.push(startNumber);
-    startNumber += step;
+const numberProgression = (start, step, n) => {
+  if (n > 1) {
+    return start + (step * (n - 1));
   }
-  return progression.join(' ');
+  return start;
 };
+
+const generateProgression = (start, step, hidden, n) => {
+  let progression = '';
+  for (let i = 1; i <= n; i += 1) {
+    if (i === hidden) {
+      progression += '.. ';
+    } else {
+      progression += `${numberProgression(start, step, i)} `;
+    }
+  }
+  return progression;
+};
+
 
 const gameProgression = () => {
   const description = 'What number is missing in this progression?';
   const getGame = () => {
-    const startNumber = numberRandom();
+    const start = numberRandom();
     const step = numberRandom();
-    const hiddenNumber = numberRandom();
-    const progressionLength = 12;
-    const question = arithmeticProgression(startNumber, step, hiddenNumber, progressionLength);
-    const answer = startNumber + (step * hiddenNumber);
+    const hidden = numberRandom();
+    const progressionLength = 10;
+    const question = generateProgression(start, step, hidden, progressionLength);
+    const answer = numberProgression(start, step, hidden);
     const gameDateArr = [question, answer];
     return gameDateArr;
   };
